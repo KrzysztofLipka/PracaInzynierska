@@ -47,8 +47,9 @@ def ingredientSearch(sample_text):
             for index in range(len(tagged) - 1):
                 if tagged[index][1] == 'CD' and (tagged[index + 1][1] == 'NNS' or tagged[index + 1][1] == 'NN'):
                     if tagged[index + 1][0] in foods:
-                        chunks.append(str(tagged[index][0]) + ' ' + str(tagged[index + 1][0]))
-            return (chunks)
+                        #chunks.append(str(tagged[index][0]) + ' ' + str(tagged[index + 1][0]))
+                        chunks.append([str(tagged[index + 1][0]) ,str(tagged[index][0])])
+        return (chunks)
     except Exception as e:
         print(str(e))
 
